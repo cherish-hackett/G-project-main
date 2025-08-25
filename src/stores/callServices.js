@@ -26,8 +26,6 @@ export const callService = defineStore("callService", {
           console.log(err);
           throw err;
         });
-
-      
     },
     callServicesInfo(data) {
       return api
