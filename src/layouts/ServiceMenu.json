@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Profile",
+    "icon": "fa-solid fa-user-tie",
+    "link": "list"
+  },
+  {
+    "label": "Dashboard",
+    "icon": "fa-solid fa-gauge-high",
+    "link": "dashbord"
+  },
+  {
+    "label": "Offline Data",
+    "icon": "wifi_off",
+    "link": "testform"
+  },
+  {
+    "label": "Signout",
+    "icon": "fa-solid fa-right-from-bracket",
+    "link": "signout"
+  }
+]

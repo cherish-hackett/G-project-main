@@ -1,0 +1,56 @@
+[
+    {
+        "label": "Breakdown",
+        "count": 0,
+        "link":"list",
+        "type":"BPM"
+    },
+    {
+        "label": "Preventive Maintenance",
+         "count": 0,
+         "link":"dashbord",
+        "type":"PVM"
+    },
+    {
+        "label": "Pre-Commissioning",
+        "count": 0,
+         "link":"/ship",
+        "type":"PRC"
+    },
+    {
+        "label": "Installation & Commissioning",
+        "count": 0,
+         "link":"forgetPas",
+        "type":"IAC"
+    },
+    {
+        "label": "Before Commissioning Problem",
+        "count": 0,
+         "link":"forgetPas",
+        "type":"P"
+    },
+    {
+        "label": "Retro Fitmet",
+        "count": 0,
+         "link":"forgetPas",
+        "type":"RET"
+    },
+    {
+        "label": "Running with Problem",
+        "count": 0,
+         "link":"forgetPas",
+        "type":"RWP"
+    },
+    {
+        "label": "Good Will",
+        "count": 0,
+         "link":"forgetPas",
+        "type":"GWL"
+    },
+    {
+        "label": "Visit",
+        "count": 0,
+         "link":"forgetPas",
+        "type":"VIS"
+    }
+]

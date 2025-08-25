@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Profile",
+    "icon": "fa-solid fa-user-tie",
+    "link": "list"
+  },
+  {
+    "label": "Dashboard",
+    "icon": "fa-solid fa-gauge-high",
+    "link": "dashbord"
+  },
+  {
+    "label": "Offline Data",
+    "icon": "wifi_off",
+    "link": "/ship"
+  },
+  {
+    "label": "Change Password",
+    "icon": "fa-solid fa-key",
+    "link": "forgetPas"
+  },
+  {
+    "label": "Pin Code",
+    "icon": "password",
+    "link": "testform"
+  },
+  {
+    "label": "Signout",
+    "icon": "fa-solid fa-right-from-bracket",
+    "link": "signout"
+  }
+]

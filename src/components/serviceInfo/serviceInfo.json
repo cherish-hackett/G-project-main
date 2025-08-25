@@ -1,0 +1,26 @@
+[
+    {
+        "label": "New Call",
+        "count": 0,
+        "link":"list",
+        "type":"N"
+    },
+    {
+        "label": "Pending Call",
+         "count": 0,
+         "link":"dashbord",
+        "type":"P"
+    },
+    {
+        "label": "Temporary Closed",
+        "count": 0,
+         "link":"/ship",
+        "type":"TC"
+    },
+    {
+        "label": "Permanently Closed",
+        "count": 0,
+         "link":"forgetPas",
+        "type":"PC"
+    }
+]
