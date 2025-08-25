@@ -224,9 +224,9 @@
                 <div class="text-h6">Enter the Reason</div>
               </q-card-section>
               <q-card-section >
-                
+
                   <q-input v-model="reason" filled type="textarea" label="Enter the Reason" />
-               
+
               </q-card-section>
               <q-card-actions align="right" class="text-primary">
                 <q-btn flat label="Cancel" v-close-popup />
@@ -300,7 +300,7 @@ export default {
     const formatDate = (data) => {
       return date.formatDate(data, "ddd, MMMM Do, YYYY");
     };
-   
+
 
     const assignData = (type) => {
       let obj = {
