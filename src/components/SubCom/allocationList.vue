@@ -75,10 +75,13 @@ export default {
       const userDataString = localStorage.getItem("userData");
       if (userDataString) {
         const userData = JSON.parse(userDataString);
-        console.log(store2.getserviceEngList.NewList.length);
+
+        //console.log(store2.getserviceEngList.NewList.length);
+        const newList = store2.getserviceEngList?.NewList ?? [];
+        console.log(newList);
         if (userData.userRole === "API_SERVENGG") {
-          for (let i = 0; i < store2.getserviceEngList.NewList.length; i++) {
-            const service = store2.getserviceEngList.NewList[i];
+          for (let i = 0; i < newList.length; i++) {
+            const service = newList[i];
             if (
               type === "Preventive Maintenance" &&
               service.defCategory === "Preventive Maintenance"
@@ -97,8 +100,9 @@ export default {
             }
           }
         } else {
-          for (let i = 0; i < store.getCallList.ServiceDetails.length; i++) {
-            const service = store.getCallList.ServiceDetails[i];
+          const newList = store.getCallList?.ServiceDetails ?? [];
+          for (let i = 0; i < newList.length; i++) {
+            const service = newList[i];
             if (type === "PM" && service.reqType === "PVM") {
               final.push(service);
             } else if (
@@ -127,7 +131,9 @@ export default {
         const userDataString = localStorage.getItem("userData");
         if (userDataString) {
           const userData = JSON.parse(userDataString);
-          console.log(store2.getserviceEngList.NewList.length);
+          // console.log(store2.getserviceEngList.NewList.length);
+          const newList = store2.getserviceEngList?.NewList ?? [];
+          console.log(newList);
           if (userData.userRole === "API_SERVENGG") {
             if (newType === "Preventive Maintenance") {
               bartitle.value = "Preventive Maintenance";
