@@ -122,11 +122,15 @@ export default {
   data() {
     return {
       selectedTab: "COMPREQ",
-      formData: Object,
+      formData: { FSRdetails: [] },
       saveInterval: null,
     };
   },
   async created() {
+    const form = await getForm(localStorage.getItem("message"));
+    if (form) {
+      this.formData = form;
+    }
     await this.initializeFormData();
     this.startAutoSave();
   },
@@ -184,9 +188,9 @@ export default {
           form.append("fieldType", "IMAGE");
           form.append("tabId", img[index].tabId);
           console.log("FormData for Image:", formData);
-      //             for (let pair of formData.entries()) {
-      //   console.log(pair[0] + ':', pair[1]);
-      // }
+          //             for (let pair of formData.entries()) {
+          //   console.log(pair[0] + ':', pair[1]);
+          // }
           this.store.UploadImage(formData);
         }
         console.log("Form submitted successfully");
@@ -259,10 +263,12 @@ export default {
     },
   },
   async mounted() {
-    for (let tab of this.formData.FSRdetails) {
-      for (let field of tab.fsrFieldDetList) {
-        if (field.fieldType === "IMAGE") {
-          await this.loadImageFromIndexedDB(field.fieldId, tab.tabId);
+    if (this.formData && Array.isArray(this.formData.FSRdetails)) {
+      for (let tab of this.formData.FSRdetails) {
+        for (let field of tab.fsrFieldDetList) {
+          if (field.fieldType === "IMAGE") {
+            await this.loadImageFromIndexedDB(field.fieldId, tab.tabId);
+          }
         }
       }
     }
