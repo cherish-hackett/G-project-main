@@ -23,6 +23,11 @@ export async function addForm(data) {
 }
 
 export async function getForm(message) {
+   if (!message) {
+     console.error("getForm called without a valid message key");
+     return null;
+   }
+  
   const db = await dbPromise;
   const tx = db.transaction(STORE_NAME, 'readonly');
   const store = tx.objectStore(STORE_NAME);
