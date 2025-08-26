@@ -38,17 +38,17 @@
 <script>
 import { callService } from "src/stores/callServices.js";
 import { ref, onMounted, watch } from "vue";
-import { useRouter } from 'vue-router';
+import { useRouter } from "vue-router";
 export default {
   setup() {
     const store = new callService();
-    const router =  useRouter();
-    let data = ref({});
+    const router = useRouter();
+    let data = ref({ NewList: [] });
     let buttonData = ref([
       { name: "Complaint", count: 0, link: "allocationList" },
       { name: "Commissioning", count: 0, link: "allocationList" },
       { name: "Preventive Maintenance", count: 0, link: "allocationList" },
-      { name: "Offline", count: 0, link: "allocationList" }
+      { name: "Offline", count: 0, link: "allocationList" },
     ]);
 
     async function fetchServiceList() {
@@ -61,23 +61,29 @@ export default {
     }
 
     function updateButtonCounts() {
-
-      if (!data.value || !data.value.NewList || !Array.isArray(data.value.NewList)) {
-          return; // nothing to update yet
+      if (
+        !data.value ||
+        !data.value.NewList ||
+        !Array.isArray(data.value.NewList)
+      ) {
+        return; // nothing to update yet
       }
 
-      const counts = data.value.NewList.reduce((acc, item) => {
-        if (item.defCategory === 'Complaint') {
-          acc[0]++;
-        } else if (item.defCategory === 'Commissioning') {
-          acc[1]++;
-        } else if (item.defCategory === 'Preventive Maintenance') {
-          acc[2]++;
-        } else {
-          acc[3]++;
-        }
-        return acc;
-      }, [0, 0, 0, 0]);
+      const counts = data.value.NewList.reduce(
+        (acc, item) => {
+          if (item.defCategory === "Complaint") {
+            acc[0]++;
+          } else if (item.defCategory === "Commissioning") {
+            acc[1]++;
+          } else if (item.defCategory === "Preventive Maintenance") {
+            acc[2]++;
+          } else {
+            acc[3]++;
+          }
+          return acc;
+        },
+        [0, 0, 0, 0]
+      );
 
       buttonData.value[0].count = counts[0];
       buttonData.value[1].count = counts[1];
@@ -85,12 +91,14 @@ export default {
       buttonData.value[3].count = counts[3];
     }
 
-    watch(data, () => {
-      if (data.value.NewList) {
-        updateButtonCounts();
+    watch(
+      () => data.value.NewList,
+      (newVal) => {
+        if (Array.isArray(newVal)) {
+          updateButtonCounts();
+        }
       }
-    });
-
+    );
     onMounted(() => {
       fetchServiceList();
     });
@@ -99,15 +107,15 @@ export default {
       data,
       buttonData,
       fetchServiceList,
-      router
+      router,
     };
   },
-  methods:{
-     navigate(data){
-            console.log(data);
-            this.router.push({name:data.link,params:{ type : data.name}})
-        }
-  }
+  methods: {
+    navigate(data) {
+      console.log(data);
+      this.router.push({ name: data.link, params: { type: data.name } });
+    },
+  },
 };
 </script>
 
