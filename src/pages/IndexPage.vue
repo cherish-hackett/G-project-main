@@ -61,6 +61,11 @@ export default {
     }
 
     function updateButtonCounts() {
+
+      if (!data.value || !data.value.NewList || !Array.isArray(data.value.NewList)) {
+          return; // nothing to update yet
+      }
+
       const counts = data.value.NewList.reduce((acc, item) => {
         if (item.defCategory === 'Complaint') {
           acc[0]++;
