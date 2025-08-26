@@ -1,9 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <!-- Header with custom component -->
     <q-header>
       <barHeader message="Offline Data" />
     </q-header>
+
     <q-page-container>
+      <!-- Dynamic Tabs -->
       <q-tabs
         v-model="selectedTab"
         @change="handleTabChange"
@@ -11,6 +14,7 @@
         mobile-arrows="false"
         outside-arrows="false"
       >
+        <!-- Render one tab per FSR detail -->
         <q-tab
           v-for="(tab, index) in formData.FSRdetails"
           :key="index"
@@ -20,17 +24,20 @@
         </q-tab>
       </q-tabs>
 
+      <!-- Tab Panels -->
       <q-tab-panels v-model="selectedTab">
         <q-tab-panel
           v-for="(tab, index) in formData.FSRdetails"
           :key="index"
           :name="tab.tabId"
         >
+          <!-- Render form fields dynamically -->
           <div
             v-for="field in tab.fsrFieldDetList"
             :key="field.fieldId"
             class="q-mb-md"
           >
+            <!-- IMAGE Field Handling -->
             <template v-if="field.fieldType === 'IMAGE'">
               <q-input
                 :label="field.fieldName"
@@ -39,6 +46,7 @@
                 readonly
                 v-model="field.fieldValue"
               />
+              <!-- Image Upload Input -->
               <input
                 type="file"
                 @change="
@@ -51,6 +59,7 @@
                   )
                 "
               />
+              <!-- Image Preview -->
               <img
                 v-if="field.fieldLength"
                 :src="field.fieldLength"
@@ -58,6 +67,8 @@
                 class="image-preview"
               />
             </template>
+
+            <!-- All Other Field Types -->
             <component
               v-else
               :is="getComponentType(field.fieldType)"
@@ -77,6 +88,7 @@
         </q-tab-panel>
       </q-tab-panels>
 
+      <!-- Submit Button -->
       <q-btn type="submit" label="Submit" color="primary" @click="submitForm" />
     </q-page-container>
   </q-layout>
@@ -102,6 +114,7 @@ import {
 } from "./imageDB.js";
 import { callService } from "src/stores/callServices";
 import barHeader from "src/components/SubCom/barHeader.vue";
+
 export default {
   components: {
     QTabs,
@@ -113,40 +126,65 @@ export default {
     QSelect,
     barHeader,
   },
+
   setup() {
+    // Pinia store instance
     const store = new callService();
-    return {
-      store,
-    };
+    return { store };
   },
+
   data() {
     return {
-      selectedTab: "COMPREQ",
-      formData: { FSRdetails: [] },
-      saveInterval: null,
+      selectedTab: "COMPREQ", // Default selected tab
+      formData: { FSRdetails: [] }, // Main form object (dynamic fields)
+      saveInterval: null, // Interval handler for auto-save
     };
   },
+
+  // --------- LIFECYCLE HOOKS ---------
   async created() {
+    // Load saved form data from IndexedDB (if exists)
     const form = await getForm(localStorage.getItem("message"));
     if (form) {
       this.formData = form;
     }
     await this.initializeFormData();
+
+    // Start auto-save timer (every 2 min)
     this.startAutoSave();
   },
+
   beforeUnmount() {
+    // Stop auto-save on component destroy
     this.stopAutoSave();
   },
+
+  async mounted() {
+    // Load saved images from IndexedDB for each field
+    if (this.formData && Array.isArray(this.formData.FSRdetails)) {
+      for (let tab of this.formData.FSRdetails) {
+        for (let field of tab.fsrFieldDetList) {
+          if (field.fieldType === "IMAGE") {
+            await this.loadImageFromIndexedDB(field.fieldId, tab.tabId);
+          }
+        }
+      }
+    }
+  },
+
   methods: {
+    // --------- FORM INITIALIZATION ---------
     async initializeFormData() {
       const form = await getForm(localStorage.getItem("message"));
       if (form) {
         this.formData = form;
-        console.log(form);
+        console.log("Loaded form from DB:", form);
       }
     },
+
+    // --------- AUTO SAVE ---------
     startAutoSave() {
-      this.saveInterval = setInterval(this.saveForm, 120000);
+      this.saveInterval = setInterval(this.saveForm, 120000); // 2 min
     },
     stopAutoSave() {
       if (this.saveInterval) {
@@ -156,6 +194,8 @@ export default {
     async saveForm() {
       try {
         const existingRecord = await getForm(this.formData.Message);
+
+        // Save only if changes detected
         if (
           existingRecord &&
           JSON.stringify(existingRecord) === JSON.stringify(this.formData)
@@ -163,41 +203,49 @@ export default {
           console.log("No changes detected, skipping save.");
           return;
         } else {
-          await updateForm(JSON.stringify(this.formData)); // Update the form data without key parameter
+          await updateForm(JSON.stringify(this.formData));
           console.log("Form data saved automatically");
         }
       } catch (error) {
         console.error("Error saving form data:", error);
       }
     },
+
+    // --------- FORM SUBMISSION ---------
     async submitForm() {
       this.stopAutoSave();
       try {
+        // Save form before submitting
         await updateForm(JSON.stringify(this.formData));
+
+        // Get all saved images from IndexedDB
         let img = await getImages();
-        console.log("vsdnbsdv", img);
+        console.log("Images from IndexedDB:", img);
 
         for (let index = 0; index < img.length; index++) {
-          const form = new FormData();
-          form.append("file", img[index].file);
-          form.append("docID", this.formData.requestNO);
-          form.append("fieldInd", img[index].fieldInd);
-          form.append("defectType", this.formData.defectType);
-          form.append("requestNO", this.formData.requestNO);
-          form.append("fieldName", img[index].field);
-          form.append("fieldType", "IMAGE");
-          form.append("tabId", img[index].tabId);
+          const formData = new FormData();
+          formData.append("file", img[index].file);
+          formData.append("docID", this.formData.requestNO);
+          formData.append("fieldInd", img[index].fieldInd);
+          formData.append("defectType", this.formData.defectType);
+          formData.append("requestNO", this.formData.requestNO);
+          formData.append("fieldName", img[index].field);
+          formData.append("fieldType", "IMAGE");
+          formData.append("tabId", img[index].tabId);
+
           console.log("FormData for Image:", formData);
-          //             for (let pair of formData.entries()) {
-          //   console.log(pair[0] + ':', pair[1]);
-          // }
+
+          // Upload image via store
           this.store.UploadImage(formData);
         }
+
         console.log("Form submitted successfully");
       } catch (error) {
         console.error("Error submitting form:", error);
       }
     },
+
+    // --------- FIELD COMPONENT MAPPER ---------
     getComponentType(fieldType) {
       switch (fieldType) {
         case "TEXT":
@@ -208,7 +256,7 @@ export default {
         case "SELECT":
           return "q-select";
         case "IMAGE":
-          return "q-input";
+          return "q-input"; // still using input for IMAGE field
         default:
           return "q-input";
       }
@@ -227,19 +275,25 @@ export default {
           return "text";
       }
     },
+
+    // --------- EVENT HANDLERS ---------
     async handleTabChange() {
-      // localStorage.getItem('cardData');
+      // Save form when user switches tab
       await this.saveForm();
     },
+
+    // Handle Image Upload from file input
     async handleImageUpload(event, fieldId, tabId, fieldIndex, tabIndex) {
-      console.log(fieldId, tabId);
+      console.log("Uploading image for:", fieldId, tabId);
       const file = event.target.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = async (e) => {
           const base64String = e.target.result;
           const form = await getForm(this.formData.Message);
+
           if (form) {
+            // Save image data (base64 + file name) in formData
             form.FSRdetails[tabIndex - 1].fsrFieldDetList[
               fieldIndex
             ].fieldLength = base64String;
@@ -247,13 +301,17 @@ export default {
               fieldIndex
             ].fieldValue = file.name;
             this.formData = form;
-            console.log(form);
+            console.log("Updated form with image:", form);
           }
+
+          // Store file in IndexedDB for offline persistence
           await addImage(file, fieldId, fieldIndex, tabId, file.name);
         };
         reader.readAsDataURL(file);
       }
     },
+
+    // Load image file from IndexedDB and display
     async loadImageFromIndexedDB(indexid, tabid) {
       const imageRecord = await getImage(indexid, tabid);
       if (imageRecord && imageRecord.file) {
@@ -261,17 +319,6 @@ export default {
         reader.readAsDataURL(imageRecord.file);
       }
     },
-  },
-  async mounted() {
-    if (this.formData && Array.isArray(this.formData.FSRdetails)) {
-      for (let tab of this.formData.FSRdetails) {
-        for (let field of tab.fsrFieldDetList) {
-          if (field.fieldType === "IMAGE") {
-            await this.loadImageFromIndexedDB(field.fieldId, tab.tabId);
-          }
-        }
-      }
-    }
   },
 };
 </script>
