@@ -104,6 +104,8 @@ import {
   QInput,
   QSelect,
 } from "quasar";
+
+const AUTO_SAVE_INTERVAL = import.meta.AUTO_SAVE_INTERVAL; // Default to 2 min if not set
 import { getForm, updateForm, addForm } from "./indexDBService";
 import {
   deleteImage,
@@ -184,7 +186,7 @@ export default {
 
     // --------- AUTO SAVE ---------
     startAutoSave() {
-      this.saveInterval = setInterval(this.saveForm, 120000); // 2 min
+      this.saveInterval = setInterval(this.saveForm, AUTO_SAVE_INTERVAL); // 2 min
     },
     stopAutoSave() {
       if (this.saveInterval) {
