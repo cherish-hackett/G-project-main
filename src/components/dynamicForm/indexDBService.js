@@ -47,17 +47,28 @@ export async function addForm(data) {
 }
 
 
+// export async function getForm(message) {
+//   if (!message) {
+//     console.error("getForm called without a valid message key");
+//     return null;
+//   }
+
+//   const db = await dbPromise;
+//   const tx = db.transaction(STORE_NAME, "readonly");
+//   const store = tx.objectStore(STORE_NAME);
+//   return await store.get(message);
+// }
+
 export async function getForm(message) {
   if (!message) {
-    console.error("getForm called without a valid message key");
+    console.error("getForm called without a valid 'Message' key");
     return null;
   }
 
   const db = await dbPromise;
-  const tx = db.transaction(STORE_NAME, "readonly");
-  const store = tx.objectStore(STORE_NAME);
-  return await store.get(message);
+  return await db.get(STORE_NAME, message);
 }
+
 
 export async function updateForm(data) {
   // Ensure data is an object
