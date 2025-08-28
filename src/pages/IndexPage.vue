@@ -92,13 +92,14 @@ export default {
     }
 
     watch(
-      () => data.value.NewList,
+      () => data.value?.NewList, // optional chaining
       (newVal) => {
         if (Array.isArray(newVal)) {
           updateButtonCounts();
         }
       }
     );
+    
     onMounted(() => {
       fetchServiceList();
     });
