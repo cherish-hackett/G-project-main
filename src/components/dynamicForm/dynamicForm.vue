@@ -135,24 +135,54 @@ export default {
     return { store };
   },
 
+  // data() {
+  //   return {
+  //     selectedTab: "COMPREQ", // Default selected tab
+  //     formData: { FSRdetails: [] }, // Main form object (dynamic fields)
+  //     saveInterval: null, // Interval handler for auto-save
+  //   };
+  // },
+
   data() {
     return {
-      selectedTab: "COMPREQ", // Default selected tab
-      formData: { FSRdetails: [] }, // Main form object (dynamic fields)
-      saveInterval: null, // Interval handler for auto-save
+      selectedTab: "COMPREQ",
+      formData: {
+        Message: localStorage.getItem("message") || `msg_${Date.now()}`,
+        FSRdetails: [],
+      },
+      saveInterval: null,
     };
   },
 
   // --------- LIFECYCLE HOOKS ---------
+  // async created() {
+  //   // Load saved form data from IndexedDB (if exists)
+  //   const form = await getForm(localStorage.getItem("message"));
+  //   if (form) {
+  //     this.formData = form;
+  //   }
+  //   await this.initializeFormData();
+
+  //   // Start auto-save timer (every 2 min)
+  //   this.startAutoSave();
+  // },
+
   async created() {
-    // Load saved form data from IndexedDB (if exists)
-    const form = await getForm(localStorage.getItem("message"));
+    let messageKey = localStorage.getItem("message");
+
+    if (!messageKey) {
+      messageKey = `msg_${Date.now()}`;
+      localStorage.setItem("message", messageKey);
+    }
+
+    const form = await getForm(messageKey);
     if (form) {
       this.formData = form;
+    } else {
+      this.formData.Message = messageKey; // ensure it's set
     }
-    await this.initializeFormData();
 
-    // Start auto-save timer (every 2 min)
+    await this.initializeFormData();
     this.startAutoSave();
   },
 
@@ -193,11 +223,36 @@ export default {
         clearInterval(this.saveInterval);
       }
     },
+    // async saveForm() {
+    //   try {
+    //     const existingRecord = await getForm(this.formData.Message);
+
+    //     // Save only if changes detected
+    //     if (
+    //       existingRecord &&
+    //       JSON.stringify(existingRecord) === JSON.stringify(this.formData)
+    //     ) {
+    //       console.log("No changes detected, skipping save.");
+    //       return;
+    //     } else {
+    //       await updateForm(JSON.stringify(this.formData));
+    //       console.log("Form data saved automatically");
+    //     }
+    //   } catch (error) {
+    //     console.error("Error saving form data:", error);
+    //   }
+    // },
+
     async saveForm() {
       try {
+        if (!this.formData.Message) {
+          this.formData.Message =
+            localStorage.getItem("message") || `msg_${Date.now()}`;
+          localStorage.setItem("message", this.formData.Message);
+        }
+
         const existingRecord = await getForm(this.formData.Message);
 
-        // Save only if changes detected
         if (
           existingRecord &&
           JSON.stringify(existingRecord) === JSON.stringify(this.formData)
