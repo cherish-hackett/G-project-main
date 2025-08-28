@@ -70,16 +70,29 @@ export async function getForm(message) {
 }
 
 
+// export async function updateForm(data) {
+//   // Ensure data is an object
+//   if (typeof data === "string") {
+//     try {
+//       data = JSON.parse(data);
+//     } catch (e) {
+//       console.error("Invalid JSON string passed to updateForm");
+//       return;
+//     }
+//   }
+
+//   if (!data.Message) {
+//     throw new Error("Data must include 'Message' as the key.");
+//   }
+
+//   const db = await dbPromise;
+//   const tx = db.transaction(STORE_NAME, "readwrite");
+//   await tx.store.put(data); // works only if data.Message exists
+//   await tx.done;
+// }
+
 export async function updateForm(data) {
-  // Ensure data is an object
-  if (typeof data === "string") {
-    try {
-      data = JSON.parse(data);
-    } catch (e) {
-      console.error("Invalid JSON string passed to updateForm");
-      return;
-    }
-  }
+  data = JSON.parse(data);
 
   if (!data.Message) {
     throw new Error("Data must include 'Message' as the key.");
@@ -87,9 +100,10 @@ export async function updateForm(data) {
 
   const db = await dbPromise;
   const tx = db.transaction(STORE_NAME, "readwrite");
-  await tx.store.put(data); // works only if data.Message exists
+  await tx.store.put(data);
   await tx.done;
 }
+
 
 export async function deleteForm(message) {
   if (!message) {
