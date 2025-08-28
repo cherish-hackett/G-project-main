@@ -11,8 +11,8 @@
         v-model="selectedTab"
         @change="handleTabChange"
         inline-label
-        mobile-arrows="false"
-        outside-arrows="false"
+        :mobile-arrows="false"
+        :outside-arrows="false"
       >
         <!-- Render one tab per FSR detail -->
         <q-tab
