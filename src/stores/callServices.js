@@ -8,7 +8,7 @@ export const callService = defineStore("callService", {
   state: () => ({
     callServiceInfo: {}, // Stores detailed info about a particular service
     callServicereport: {}, // Stores service report data (like counts/statistics)
-    seviceList: [], // Stores list of services assigned to engineer/dealer
+    serviceList: [], // Stores list of services assigned to engineer/dealer
   }),
 
   // --------- ACTIONS (async operations / API calls) ---------
@@ -26,9 +26,9 @@ export const callService = defineStore("callService", {
       };
       let res = await api.post("/auth/css/serviceEngg/getServiceList", obj);
       try {
-        console.log(res.data);
-        this.seviceList = res.data.ServiceDetails; // Update state with response
-        return res.data.ServiceDetails;
+        console.log("services list: ", res.data);
+        this.serviceList = await res.data; // Update state with response
+        return this.serviceList;
       } catch (err) {
         console.log(err);
         throw err;
@@ -42,7 +42,7 @@ export const callService = defineStore("callService", {
     async callServicesInfo(data) {
       let res = await api.post("/auth/css/dealer/getServiceInfo", data);
       try {
-        console.log(res.data);
+        console.log("service info details: ", res.data);
         this.callServiceInfo = res.data; // Store service info in state
         return res.data;
       } catch (err) {

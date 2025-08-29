@@ -22,13 +22,13 @@
           <q-btn dense flat icon="search" @click="toggleSearch" />
         </q-bar>
       </q-header>
-  
+
       <q-page-container>
         <q-item clickable v-for="(data, index) in filteredList" :key="index" @click="navigate(data)">
           <q-item-section avatar top>
             <q-avatar class="bg-primary text-white">{{ type }}</q-avatar>
           </q-item-section>
-  
+
           <q-item-section top>
             <q-item-label lines="1">
               <span class="text-weight-medium">Request NO:</span>
@@ -42,7 +42,7 @@
       </q-page-container>
     </q-layout>
   </template>
-  
+
   <script>
   import { computed, ref, nextTick, watch } from 'vue'; // Import necessary functions
   import { useRoute, useRouter } from 'vue-router';
@@ -57,29 +57,29 @@
       const store = callService();
       const setDataStore = componentData();
       const type = route.params.type;
-      const bartitle = ref(localStorage.getItem("status") === "true" ?"service report":"Service complaint");     
+      const bartitle = ref(localStorage.getItem("status") === true ?"service report":"Service complaint");
       const searchQuery = ref('');
       const searchActive = ref(false);
       let list = store.getserviceList;
-      console.log(store.getserviceList);
-  
+      console.log("service list: " + list);
+
       const filteredList = computed(() => {
         console.log(list);
         if (!searchActive.value) {
           return list;
         }
         const searchTerm = searchQuery.value.toLowerCase();
-        return list.filter(item => 
-          Object.values(item).some(value => 
+        return list.filter(item =>
+          Object.values(item).some(value =>
             value && value.toString().toLowerCase().includes(searchTerm)
           )
         );
       });
-  
+
       const back = () => {
         router.go(-1);
       };
-     
+
       return {
         bartitle,
         type,
@@ -96,7 +96,7 @@
       navigate(data) {
         Loading.show();
         this.setDataStore.setComponentDataObj(data);
-        this.router.push({ name: 'seviceCard' , params:{message:this.bartitle}}); 
+        this.router.push({ name: 'seviceCard' , params:{message:this.bartitle}});
         Loading.hide();
       },
       toggleSearch() {
@@ -110,4 +110,3 @@
     }
   };
   </script>
-  

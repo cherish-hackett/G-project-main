@@ -41,7 +41,7 @@ import { ref, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
 export default {
   setup() {
-    const store = new callService();
+    const store = callService();
     const router = useRouter();
     let data = ref({ NewList: [] });
     let buttonData = ref([
@@ -54,7 +54,9 @@ export default {
     async function fetchServiceList() {
       try {
         let res = await store.getEngServiceList();
+        console.log("Fetched service list:", res);
         data.value = res;
+        console.log("Data after fetch:", data.value);
       } catch (err) {
         console.log(err);
       }
@@ -99,7 +101,7 @@ export default {
         }
       }
     );
-    
+
     onMounted(() => {
       fetchServiceList();
     });

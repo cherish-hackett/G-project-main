@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { computed, ref, nextTick, watch } from "vue"; // Import necessary functions
+import { computed, ref, nextTick, watch, onMounted } from "vue"; // Import necessary functions
 import { useRoute, useRouter } from "vue-router";
 import { callList } from "src/stores/callList";
 import { callService } from "src/stores/callServices";
@@ -70,15 +70,17 @@ export default {
     const searchQuery = ref("");
     const searchActive = ref(false);
 
+    onMounted(async () => {
+      await store2.getEngServiceList(); // fetch once on page load
+    });
+
     const list = computed(() => {
       const final = [];
       const userDataString = localStorage.getItem("userData");
       if (userDataString) {
         const userData = JSON.parse(userDataString);
+        const newList = store2.serviceList?.NewList ?? [];
 
-        //console.log(store2.getserviceEngList.NewList.length);
-        const newList = store2.getserviceEngList?.NewList ?? [];
-        console.log(newList);
         if (userData.userRole === "API_SERVENGG") {
           for (let i = 0; i < newList.length; i++) {
             const service = newList[i];
@@ -101,6 +103,7 @@ export default {
           }
         } else {
           const newList = store.getCallList?.ServiceDetails ?? [];
+          console.log("call list: " + newList);
           for (let i = 0; i < newList.length; i++) {
             const service = newList[i];
             if (type === "PM" && service.reqType === "PVM") {
@@ -169,10 +172,12 @@ export default {
     );
 
     const filteredList = computed(() => {
+      console.log(searchActive.value, list.value, "searchActive.value");
       if (!searchActive.value) {
         return list.value;
       }
       const searchTerm = searchQuery.value.toLowerCase();
+      console.log(list.value, "list.value");
       return list.value.filter((item) =>
         Object.values(item).some(
           (value) =>
