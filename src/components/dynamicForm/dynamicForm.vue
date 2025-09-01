@@ -113,7 +113,7 @@ import {
   QSelect,
 } from "quasar";
 
-import { validateForm } from "@/utils/validation.js";
+import { validateForm } from "src/utils/validation.js";
 
 const AUTO_SAVE_INTERVAL = import.meta.AUTO_SAVE_INTERVAL; // Default to 2 min if not set
 import { getForm, updateForm, addForm } from "./indexDBService";
