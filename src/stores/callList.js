@@ -44,8 +44,8 @@ export const callList = defineStore("poStore", {
           data
         );
         console.log("Call Report:", res.data);
+        this.formdata = res.data;
 
-        // NOTE: Currently not stored in state (directly returned)
         return res.data;
       } catch (err) {
         console.error("Error fetching call report:", err);
@@ -64,7 +64,7 @@ export const callList = defineStore("poStore", {
           data
         );
         console.log("Detailed Call Report:", res.data);
-
+        this.callReportObj = res.data; // Store detailed report in state
         return res.data;
       } catch (err) {
         console.error("Error fetching detailed call report:", err);
@@ -116,5 +116,13 @@ export const callList = defineStore("poStore", {
     getCallList() {
       return this.callList;
     },
+
+    getCallReportObj() {
+      return this.callReportObj;
+    },
+
+    getFormdata() {
+      return this.formdata;
+    } 
   },
 });

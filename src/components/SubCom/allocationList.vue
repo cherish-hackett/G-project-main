@@ -71,7 +71,7 @@ export default {
     const searchActive = ref(false);
 
     onMounted(async () => {
-      await store2.getEngServiceList(); // fetch once on page load
+      await store2.fetchEngServiceList(); // fetch once on page load
     });
 
     const list = computed(() => {

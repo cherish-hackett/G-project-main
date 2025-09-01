@@ -32,6 +32,13 @@ export const useAuthStore = defineStore('auth', {
   getters: {
     authState() {
       return this.isAuthResolved;
+    },
+
+
+    getUser() {
+      return this.user;
     }
+
+
   }
 });

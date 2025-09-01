@@ -17,7 +17,7 @@ export const callService = defineStore("callService", {
      * Fetch list of services assigned to a Service Engineer.
      * API: /auth/css/serviceEngg/getServiceList
      */
-    async getEngServiceList() {
+    async fetchEngServiceList() {
       let obj = {
         dealer: "",
         servEngg: "",
@@ -27,7 +27,7 @@ export const callService = defineStore("callService", {
       let res = await api.post("/auth/css/serviceEngg/getServiceList", obj);
       try {
         console.log("services list: ", res.data);
-        this.serviceList = await res.data; // Update state with response
+        this.serviceList = res.data; // Update state with response
         return this.serviceList;
       } catch (err) {
         console.log(err);
@@ -44,7 +44,7 @@ export const callService = defineStore("callService", {
       try {
         console.log("service info details: ", res.data);
         this.callServiceInfo = res.data; // Store service info in state
-        return res.data;
+        return this.callServiceInfo;
       } catch (err) {
         console.log(err);
         throw err;
@@ -60,7 +60,7 @@ export const callService = defineStore("callService", {
       try {
         console.log(res.data);
         this.callServicereport = res.data; // Store report in state
-        return res.data;
+        return this.callServicereport;
       } catch (err) {
         console.log(err);
         throw err;
@@ -132,8 +132,13 @@ export const callService = defineStore("callService", {
     },
 
     // Get detailed service info
-    getserviceEngList() {
+    getServiceEngList() {
       return this.callServiceInfo;
     },
+
+    // Get service report data
+    getServiceEngReport() {
+      return this.callServicereport;
+    }
   },
 });

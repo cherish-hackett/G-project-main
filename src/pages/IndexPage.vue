@@ -35,10 +35,11 @@
   </q-page>
 </template>
 
-<script>
+<!-- <script>
 import { callService } from "src/stores/callServices.js";
 import { ref, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
+
 export default {
   setup() {
     const store = callService();
@@ -53,7 +54,7 @@ export default {
 
     async function fetchServiceList() {
       try {
-        let res = await store.getEngServiceList();
+        const res = await store.fetchEngServiceList();
         console.log("Fetched service list:", res);
         data.value = res;
         console.log("Data after fetch:", data.value);
@@ -61,6 +62,10 @@ export default {
         console.log(err);
       }
     }
+
+    onMounted(() => {
+      fetchServiceList();
+    });
 
     function updateButtonCounts() {
       if (
@@ -70,6 +75,8 @@ export default {
       ) {
         return; // nothing to update yet
       }
+
+      console.log("Updating button counts with data:", data.value.NewList);
 
       const counts = data.value.NewList.reduce(
         (acc, item) => {
@@ -102,10 +109,6 @@ export default {
       }
     );
 
-    onMounted(() => {
-      fetchServiceList();
-    });
-
     return {
       data,
       buttonData,
@@ -118,6 +121,83 @@ export default {
       console.log(data);
       this.router.push({ name: data.link, params: { type: data.name } });
     },
+  },
+};
+</script> -->
+
+<script>
+import { callService } from "src/stores/callServices.js";
+import { ref, onMounted, watch } from "vue";
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const store = callService();
+    const router = useRouter();
+    let data = ref({ NewList: [] });
+    let buttonData = ref([
+      { name: "Complaint", count: 0, link: "allocationList" },
+      { name: "Commissioning", count: 0, link: "allocationList" },
+      { name: "Preventive Maintenance", count: 0, link: "allocationList" },
+      { name: "Offline", count: 0, link: "allocationList" },
+    ]);
+
+    async function fetchServiceList() {
+      try {
+        const res = await store.fetchEngServiceList(); // ✅ await
+        console.log("Fetched service list:", res);
+        data.value = res;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    function updateButtonCounts() {
+      if (!Array.isArray(data.value?.NewList)) return;
+
+      console.log("Updating button counts with data:", data.value.NewList);
+
+      const counts = data.value.NewList.reduce(
+        (acc, item) => {
+          if (item.defCategory === "Complaint") acc[0]++;
+          else if (item.defCategory === "Commissioning") acc[1]++;
+          else if (item.defCategory === "Preventive Maintenance") acc[2]++;
+          else acc[3]++;
+          return acc;
+        },
+        [0, 0, 0, 0]
+      );
+
+      buttonData.value[0].count = counts[0];
+      buttonData.value[1].count = counts[1];
+      buttonData.value[2].count = counts[2];
+      buttonData.value[3].count = counts[3];
+    }
+
+    watch(
+      () => data.value?.NewList,
+      (newVal) => {
+        if (Array.isArray(newVal)) {
+          updateButtonCounts();
+        }
+      }
+    );
+
+    onMounted(() => {
+      fetchServiceList();
+    });
+
+    function navigate(data) {
+      console.log(data);
+      router.push({ name: data.link, params: { type: data.name } });
+    }
+
+    return {
+      data,
+      buttonData,
+      fetchServiceList,
+      navigate,
+    };
   },
 };
 </script>
