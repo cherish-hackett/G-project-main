@@ -84,6 +84,14 @@
               outlined
               dense
             />
+
+            <!-- ✅ Inline Validation Error -->
+            <div
+              v-if="errors[field.fieldId]"
+              class="text-negative text-caption q-mt-xs"
+            >
+              {{ errors[field.fieldId] }}
+            </div>
           </div>
         </q-tab-panel>
       </q-tab-panels>
@@ -104,6 +112,8 @@ import {
   QInput,
   QSelect,
 } from "quasar";
+
+import { validateForm } from "@/utils/validation.js";
 
 const AUTO_SAVE_INTERVAL = import.meta.AUTO_SAVE_INTERVAL; // Default to 2 min if not set
 import { getForm, updateForm, addForm } from "./indexDBService";
@@ -151,21 +161,9 @@ export default {
         FSRdetails: [],
       },
       saveInterval: null,
+      errors: {}, // To hold validation errors
     };
   },
-
-  // --------- LIFECYCLE HOOKS ---------
-  // async created() {
-  //   // Load saved form data from IndexedDB (if exists)
-  //   const form = await getForm(localStorage.getItem("message"));
-  //   if (form) {
-  //     this.formData = form;
-  //   }
-  //   await this.initializeFormData();
-
-  //   // Start auto-save timer (every 2 min)
-  //   this.startAutoSave();
-  // },
 
   async created() {
     let messageKey = localStorage.getItem("message");
@@ -223,25 +221,6 @@ export default {
         clearInterval(this.saveInterval);
       }
     },
-    // async saveForm() {
-    //   try {
-    //     const existingRecord = await getForm(this.formData.Message);
-
-    //     // Save only if changes detected
-    //     if (
-    //       existingRecord &&
-    //       JSON.stringify(existingRecord) === JSON.stringify(this.formData)
-    //     ) {
-    //       console.log("No changes detected, skipping save.");
-    //       return;
-    //     } else {
-    //       await updateForm(JSON.stringify(this.formData));
-    //       console.log("Form data saved automatically");
-    //     }
-    //   } catch (error) {
-    //     console.error("Error saving form data:", error);
-    //   }
-    // },
 
     async saveForm() {
       try {
@@ -271,6 +250,35 @@ export default {
     // --------- FORM SUBMISSION ---------
     async submitForm() {
       this.stopAutoSave();
+      // ✅ Run validation first
+      const { errors, missingFields } = validateForm(this.formData);
+
+      this.errors = errors; // store for showing under inputs
+
+      if (missingFields.length > 0) {
+        this.$q.notify({
+          type: "negative",
+          icon: "warning",
+          message: `All fields are mandatory.<br/>Please fill the missing details:<br/>- ${missingFields.join(
+            "<br/>- "
+          )}`,
+          html: true,
+        });
+
+        return;
+      }
+
+      if (Object.keys(this.errors).length > 0) {
+        this.$q.notify({
+          type: "negative",
+          icon: "error",
+          message:
+            "Some fields contain invalid values.<br/>Please check the highlighted errors below.",
+          html: true,
+        });
+
+        return;
+      }
       try {
         // Save form before submitting
         await updateForm(JSON.stringify(this.formData));
@@ -296,7 +304,11 @@ export default {
           this.store.UploadImage(formData);
         }
 
-        console.log("Form submitted successfully");
+        this.$q.notify({
+          type: "positive",
+          icon: "check_circle",
+          message: "Form submitted successfully 🎉",
+        });
       } catch (error) {
         console.error("Error submitting form:", error);
       }
