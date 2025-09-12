@@ -18,8 +18,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -33,8 +32,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -48,8 +46,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "10",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -63,8 +60,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "11",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "EMAIL",
@@ -78,8 +74,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "12",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "EMAIL",
@@ -93,8 +88,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "13",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -108,8 +102,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -123,8 +116,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -138,8 +130,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -153,8 +144,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -168,8 +158,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -183,8 +172,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -198,8 +186,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -213,8 +200,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "9",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "Complaint Request Details",
@@ -235,8 +221,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -250,8 +235,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -265,8 +249,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -280,8 +263,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -295,8 +277,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -310,8 +291,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -325,8 +305,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -340,8 +319,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -355,8 +333,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -370,8 +347,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "9",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "Complaint Details",
@@ -392,8 +368,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -407,8 +382,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -422,8 +396,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "10",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "EMAIL",
@@ -437,8 +410,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "11",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -452,8 +424,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "12",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -467,8 +438,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "13",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -482,8 +452,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "14",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -497,8 +466,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "15",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -512,8 +480,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "LIVE_LOCATION",
@@ -527,8 +494,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -542,8 +508,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -557,8 +522,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -572,8 +536,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -587,8 +550,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "STATE",
@@ -602,8 +564,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DISTRICT",
@@ -617,8 +578,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "9",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "Site Details",
@@ -639,8 +599,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "FROMSYSTEM",
@@ -654,8 +613,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -669,8 +627,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "10",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -684,8 +641,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "11",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -699,8 +655,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "12",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -714,8 +669,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "13",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -729,8 +683,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "14",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -744,8 +697,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "15",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -759,8 +711,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "16",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -774,8 +725,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "17",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -789,8 +739,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "18",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -804,8 +753,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "19",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -819,8 +767,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -834,8 +781,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "20",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -849,8 +795,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "21",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "FROMSYSTEM",
@@ -864,8 +809,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "22",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -879,8 +823,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "23",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -894,8 +837,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "24",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "FROMSYSTEM",
@@ -909,8 +851,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -924,8 +865,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -939,8 +879,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -954,8 +893,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -969,8 +907,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -984,8 +921,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -999,8 +935,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "9",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "Genset / Equipment Details",
@@ -1021,8 +956,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1036,8 +970,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1051,8 +984,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "10",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1066,8 +998,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "11",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1081,8 +1012,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "12",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -1096,8 +1026,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "13",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -1111,8 +1040,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "14",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -1126,8 +1054,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "15",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1141,8 +1068,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1156,8 +1082,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1171,8 +1096,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1186,8 +1110,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1201,8 +1124,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1216,8 +1138,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1231,8 +1152,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1246,8 +1166,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "9",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "Complaint Diagnostics",
@@ -1268,8 +1187,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1283,8 +1201,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1298,8 +1215,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "10",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1313,8 +1229,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "11",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1328,8 +1243,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "12",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1343,8 +1257,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "13",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1358,8 +1271,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "14",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1373,8 +1285,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "15",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1388,8 +1299,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "16",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1403,8 +1313,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "17",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1418,8 +1327,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "18",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1433,8 +1341,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "19",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1448,8 +1355,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1463,8 +1369,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "20",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -1478,8 +1383,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "21",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1493,8 +1397,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "22",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -1508,8 +1411,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "23",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -1523,8 +1425,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "24",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1538,8 +1439,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "0-10",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1553,8 +1453,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "Greaves Max Therm",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1568,8 +1467,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1583,8 +1481,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1598,8 +1495,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1613,8 +1509,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1628,8 +1523,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "10-130",
           "fieldIndex": "9",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "General Check Up",
@@ -1650,8 +1544,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "500-4000",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -1665,8 +1558,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "500-4000",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1680,8 +1572,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "10",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1695,8 +1586,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "0-1",
           "fieldIndex": "11",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1710,8 +1600,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "12-28",
           "fieldIndex": "12",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1725,8 +1614,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "13",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1740,8 +1628,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "1-10",
           "fieldIndex": "14",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1755,8 +1642,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "1-45",
           "fieldIndex": "15",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1770,8 +1656,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "16",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1785,8 +1670,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "17",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1800,8 +1684,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "18",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1815,8 +1698,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "19",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1830,8 +1712,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "45-55",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1845,8 +1726,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "20",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1860,8 +1740,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "21",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1875,8 +1754,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "22",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1890,8 +1768,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "23",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1905,8 +1782,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "24",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1920,8 +1796,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "1-28",
           "fieldIndex": "25",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1935,8 +1810,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "26",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -1950,8 +1824,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "27",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1965,8 +1838,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "28",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -1980,8 +1852,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "29",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -1995,8 +1866,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "45-55",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2010,8 +1880,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "30",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -2025,8 +1894,7 @@
           "isfieldEditable": "F",
           "fieldPlaceHolder": "0-20",
           "fieldIndex": "31",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2040,8 +1908,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "32",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -2055,8 +1922,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "33",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -2070,8 +1936,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "34",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -2085,8 +1950,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "35",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -2100,8 +1964,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "36",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -2115,8 +1978,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -2130,8 +1992,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -2145,8 +2006,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -2160,8 +2020,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DECIMAL",
@@ -2175,8 +2034,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXT",
@@ -2190,8 +2048,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "9",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "Alternator and DG / Equipment Electricals",
@@ -2212,8 +2069,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2227,8 +2083,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2242,8 +2097,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2257,8 +2111,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2272,8 +2125,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2287,8 +2139,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -2302,8 +2153,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -2317,8 +2167,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "DG / Equipment Enclosure",
@@ -2339,8 +2188,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -2354,8 +2202,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -2369,8 +2216,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "SELECT",
@@ -2384,8 +2230,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "RATING",
@@ -2399,8 +2244,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -2414,8 +2258,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "5",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DIGITAL_SIGN",
@@ -2429,8 +2272,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "6",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -2444,8 +2286,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "7",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "RADIO",
@@ -2459,8 +2300,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "8",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "Customer Representative",
@@ -2481,8 +2321,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "0",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "NUMBER",
@@ -2496,8 +2335,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "1",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "TEXTAREA",
@@ -2511,8 +2349,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "2",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "DIGITAL_SIGN",
@@ -2526,8 +2363,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "3",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         },
         {
           "fieldType": "IMAGE",
@@ -2541,8 +2377,7 @@
           "isfieldEditable": "T",
           "fieldPlaceHolder": "",
           "fieldIndex": "4",
-          "fieldRem": "",
-          "isRequired": "T"
+          "fieldRem": ""
         }
       ],
       "tabName": "GCL Representative",

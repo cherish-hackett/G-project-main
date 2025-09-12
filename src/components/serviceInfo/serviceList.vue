@@ -60,7 +60,7 @@
       const bartitle = ref(localStorage.getItem("status") === true ?"service report":"Service complaint");
       const searchQuery = ref('');
       const searchActive = ref(false);
-      let list = store.getserviceList;
+      let list = store.getServiceList;
       console.log("service list: " + list);
 
       const filteredList = computed(() => {

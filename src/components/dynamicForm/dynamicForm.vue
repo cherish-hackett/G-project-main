@@ -7,6 +7,7 @@
 
     <q-page-container>
       <!-- Dynamic Tabs -->
+
       <q-tabs
         v-model="selectedTab"
         @change="handleTabChange"
@@ -15,6 +16,7 @@
         :outside-arrows="false"
       >
         <!-- Render one tab per FSR detail -->
+
         <q-tab
           v-for="(tab, index) in formData.FSRdetails"
           :key="index"
@@ -24,7 +26,6 @@
         </q-tab>
       </q-tabs>
 
-      <!-- Tab Panels -->
       <q-tab-panels v-model="selectedTab">
         <q-tab-panel
           v-for="(tab, index) in formData.FSRdetails"
@@ -32,6 +33,7 @@
           :name="tab.tabId"
         >
           <!-- Render form fields dynamically -->
+
           <div
             v-for="field in tab.fsrFieldDetList"
             :key="field.fieldId"
@@ -40,7 +42,7 @@
             <!-- IMAGE Field Handling -->
             <template v-if="field.fieldType === 'IMAGE'">
               <q-input
-                :label="field.fieldName"
+                :label="field.fieldName + ' *'"
                 outlined
                 dense
                 readonly
@@ -73,13 +75,24 @@
               v-else
               :is="getComponentType(field.fieldType)"
               v-model="field.fieldValue"
-              :label="field.fieldName"
+              :label="field.fieldName + ' *'"
               :type="getFieldType(field.fieldType)"
               :options="
                 field.fieldType === 'SELECT'
                   ? field.fieldOptions.split(',').map((option) => option.trim())
                   : []
               "
+              :rules="[
+                (val) => !!val || field.fieldName + ' is required',
+                field.fieldType === 'EMAIL'
+                  ? (val) =>
+                      /.+@.+\..+/.test(val) || 'Please enter a valid email'
+                  : () => true,
+                field.fieldType === 'NUMBER'
+                  ? (val) =>
+                      !isNaN(val) || field.fieldName + ' must be a number'
+                  : () => true,
+              ]"
               :readonly="field.isfieldEditable === 'F'"
               outlined
               dense
@@ -114,6 +127,7 @@ import {
 } from "quasar";
 
 import { validateForm } from "src/utils/validation.js";
+
 
 const AUTO_SAVE_INTERVAL = import.meta.AUTO_SAVE_INTERVAL; // Default to 2 min if not set
 import { getForm, updateForm, addForm } from "./indexDBService";
@@ -190,6 +204,8 @@ export default {
   },
 
   async mounted() {
+    console.log(this.formData, "this.formData");
+
     // Load saved images from IndexedDB for each field
     if (this.formData && Array.isArray(this.formData.FSRdetails)) {
       for (let tab of this.formData.FSRdetails) {
@@ -259,9 +275,7 @@ export default {
         this.$q.notify({
           type: "negative",
           icon: "warning",
-          message: `All fields are mandatory.<br/>Please fill the missing details:<br/>- ${missingFields.join(
-            "<br/>- "
-          )}`,
+          message: `All fields are mandatory.<br/>Please fill the missing details:<br/> `,
           html: true,
         });
 
@@ -273,7 +287,7 @@ export default {
           type: "negative",
           icon: "error",
           message:
-            "Some fields contain invalid values.<br/>Please check the highlighted errors below.",
+            "Some fields contain invalid values.<br/>Please check the highlighted errors.",
           html: true,
         });
 

@@ -9,8 +9,7 @@
           <q-card-section>
             <q-input
               v-model="fromDate"
-              label="Select From Date" 
-        
+              label="Select From Date"
               readonly
               clearable
               @click="showFromDatePopup = true"
@@ -156,7 +155,6 @@ export default {
         });
         Loading.hide();
       } catch (err) {
-        
         console.error(err);
       }
     };

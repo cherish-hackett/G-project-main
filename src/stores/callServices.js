@@ -127,7 +127,7 @@ export const callService = defineStore("callService", {
   // --------- GETTERS (read-only computed data from state) ---------
   getters: {
     // Get list of services
-    getserviceList() {
+    getServiceList() {
       return this.seviceList;
     },
 

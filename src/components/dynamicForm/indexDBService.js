@@ -31,7 +31,7 @@ const dbPromise = openDB(DB_NAME, DB_VERSION, {
 // }
 
 export async function addForm(data) {
-  data = JSON.parse(data);
+  data = await JSON.parse(data);
 
   if (!data.Message) {
     // Auto-generate if Message is missing
@@ -45,7 +45,6 @@ export async function addForm(data) {
 
   return data.Message; // return the key so caller can reuse it
 }
-
 
 // export async function getForm(message) {
 //   if (!message) {
@@ -68,7 +67,6 @@ export async function getForm(message) {
   const db = await dbPromise;
   return await db.get(STORE_NAME, message);
 }
-
 
 // export async function updateForm(data) {
 //   // Ensure data is an object
@@ -103,7 +101,6 @@ export async function updateForm(data) {
   await tx.store.put(data);
   await tx.done;
 }
-
 
 export async function deleteForm(message) {
   if (!message) {
