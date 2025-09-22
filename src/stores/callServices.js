@@ -96,9 +96,21 @@ export const callService = defineStore("callService", {
         // Save server message in localStorage (for UI alerts later)
         localStorage.setItem("message", res.data.Message);
 
-        console.log(res.data);
+        console.log("From Act On Request API: ", res.data);
+        console.log("Type of res data", typeof res.data);
+        res.data.FSRdetails.forEach((tab) => {
+          tab.fsrFieldDetList.sort(
+            (a, b) => Number(a.fieldIndex) - Number(b.fieldIndex)
+          );
+        });
+
+        res.data.FSRdetails.forEach((tab) => {
+          console.log("Tab Name: ", tab, tab.fsrFieldDetList);
+        });
 
         // Save API response locally in IndexedDB
+        JSON.stringify(res.data);
+
         addForm(JSON.stringify(res.data));
 
         return res.data;
@@ -122,6 +134,16 @@ export const callService = defineStore("callService", {
         throw err;
       }
     },
+
+    async saveForm(data) {
+      try {
+        const res = await api.post("/auth/css/fsr/saveFSRForm", data);
+        console.log("Form saved", res);
+        return res.data;
+      } catch (err) {
+        throw err;
+      }
+    },
   },
 
   // --------- GETTERS (read-only computed data from state) ---------
@@ -139,6 +161,6 @@ export const callService = defineStore("callService", {
     // Get service report data
     getServiceEngReport() {
       return this.callServicereport;
-    }
+    },
   },
 });
