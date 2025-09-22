@@ -23,6 +23,11 @@
           :name="tab.tabId"
         >
           {{ tab.tabName }}
+          <span
+            v-if="tabsWithErrors.includes(tab.tabId)"
+            class="red-dot"
+            title="Tab has errors"
+          ></span>
         </q-tab>
       </q-tabs>
 
@@ -47,6 +52,7 @@
                 dense
                 readonly
                 v-model="field.fieldValue"
+                :fieldIndex="field.fieldIndex"
               />
               <!-- Image Upload Input -->
               <input
@@ -60,6 +66,7 @@
                     tab.tabIndex
                   )
                 "
+                :fieldIndex="field.fieldIndex"
               />
               <!-- Image Preview -->
               <img
@@ -71,6 +78,35 @@
             </template>
 
             <!-- All Other Field Types -->
+            <!-- <component
+              v-else
+              :is="getComponentType(field.fieldType)"
+              v-model="field.fieldValue"
+              :label="field.fieldName + ' *' + field.placeholder"
+              :type="getFieldType(field.fieldType)"
+              :options="
+                field.fieldType === 'SELECT'
+                  ? field.fieldOptions.split(',').map((option) => option.trim())
+                  : []
+              "
+              :rules="[
+                (val) => !!val || field.fieldName + ' is required',
+                field.fieldType === 'EMAIL'
+                  ? (val) =>
+                      /.+@.+\..+/.test(val) || 'Please enter a valid email'
+                  : () => true,
+                field.fieldType === 'NUMBER'
+                  ? (val) =>
+                      !isNaN(val) || field.fieldName + ' must be a number'
+                  : () => true,
+              ]"
+              :fieldIndex="field.fieldIndex"
+              :readonly="field.isfieldEditable === 'F'"
+              :placeholder="field.placeholder"
+              outlined
+              dense
+            /> -->
+
             <component
               v-else
               :is="getComponentType(field.fieldType)"
@@ -93,7 +129,10 @@
                       !isNaN(val) || field.fieldName + ' must be a number'
                   : () => true,
               ]"
+              :fieldIndex="field.fieldIndex"
               :readonly="field.isfieldEditable === 'F'"
+              :placeholder="field.placeholder"
+              :hint="field.fieldType === 'SELECT' ? field.placeholder : ''"
               outlined
               dense
             />
@@ -127,7 +166,6 @@ import {
 } from "quasar";
 
 import { validateForm } from "src/utils/validation.js";
-
 
 const AUTO_SAVE_INTERVAL = import.meta.AUTO_SAVE_INTERVAL; // Default to 2 min if not set
 import { getForm, updateForm, addForm } from "./indexDBService";
@@ -176,6 +214,7 @@ export default {
       },
       saveInterval: null,
       errors: {}, // To hold validation errors
+      tabsWithErrors: [],
     };
   },
 
@@ -252,7 +291,7 @@ export default {
           existingRecord &&
           JSON.stringify(existingRecord) === JSON.stringify(this.formData)
         ) {
-          console.log("No changes detected, skipping save.");
+          // console.log("No changes detected, skipping save.");
           return;
         } else {
           await updateForm(JSON.stringify(this.formData));
@@ -267,9 +306,25 @@ export default {
     async submitForm() {
       this.stopAutoSave();
       // ✅ Run validation first
+      console.log("FORM DATA from submitForm", this.formData);
+
       const { errors, missingFields } = validateForm(this.formData);
 
       this.errors = errors; // store for showing under inputs
+      this.tabsWithErrors = [];
+      if (Object.keys(errors).length > 0) {
+        // Find which tab each error belongs to
+        this.formData.FSRdetails.forEach((tab) => {
+          const hasError = tab.fsrFieldDetList.some(
+            (field) => errors[field.fieldId]
+          );
+          if (hasError) {
+            this.tabsWithErrors.push(tab.tabId);
+          }
+        });
+      }
+
+      console.log(this.errors, "ERRORS");
 
       if (missingFields.length > 0) {
         this.$q.notify({
@@ -293,6 +348,7 @@ export default {
 
         return;
       }
+
       try {
         // Save form before submitting
         await updateForm(JSON.stringify(this.formData));
@@ -312,11 +368,25 @@ export default {
           formData.append("fieldType", "IMAGE");
           formData.append("tabId", img[index].tabId);
 
-          console.log("FormData for Image:", formData);
+          console.log("FormData for Image:", [...formData.entries()]);
+
+
 
           // Upload image via store
           this.store.UploadImage(formData);
+
+
         }
+
+        const payload = { ...this.formData };
+
+        delete payload.Status; // remove Status since backend doesn't accept it
+        delete payload.FSRdetails;
+        delete payload.Message;
+
+        payload.endJobType = "C";
+        payload.fsrFieldTabList = this.formData.FSRdetails;
+        await this.store.saveForm(payload);
 
         this.$q.notify({
           type: "positive",
@@ -414,5 +484,15 @@ export default {
   margin-top: 10px;
   max-width: 100%;
   height: auto;
+}
+
+.red-dot {
+  display: inline-block;
+  margin-left: 6px;
+  width: 8px;
+  height: 8px;
+  background: #e53935;
+  border-radius: 50%;
+  vertical-align: middle;
 }
 </style>
