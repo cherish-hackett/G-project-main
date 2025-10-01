@@ -211,11 +211,7 @@
 
               <q-card-actions align="right" class="text-primary">
                 <q-btn flat label="Cancel" v-close-popup />
-                <q-btn
-                  flat
-                  label="Go"
-                  @click="serviceReqAccept(cardData)"
-                />
+                <q-btn flat label="Go" @click="serviceReqAccept(cardData)" />
               </q-card-actions> </q-card
           ></template>
           <template v-else>
@@ -223,10 +219,13 @@
               <q-card-section>
                 <div class="text-h6">Enter the Reason</div>
               </q-card-section>
-              <q-card-section >
-
-                  <q-input v-model="reason" filled type="textarea" label="Enter the Reason" />
-
+              <q-card-section>
+                <q-input
+                  v-model="reason"
+                  filled
+                  type="textarea"
+                  label="Enter the Reason"
+                />
               </q-card-section>
               <q-card-actions align="right" class="text-primary">
                 <q-btn flat label="Cancel" v-close-popup />
@@ -300,7 +299,6 @@ export default {
     const formatDate = (data) => {
       return date.formatDate(data, "ddd, MMMM Do, YYYY");
     };
-
 
     const assignData = (type) => {
       let obj = {
@@ -383,17 +381,17 @@ export default {
       assignEngineer,
       selectedDateAndTime,
       role,
-      store2
+      store2,
     };
   },
   data() {
     return {
       status: "",
-      reason:""
+      reason: "",
     };
   },
   methods: {
-  async  serviceReqAccept (req) {
+    async serviceReqAccept(req) {
       let obj = {
         status: this.status,
         comments: "",
@@ -404,9 +402,29 @@ export default {
           "YYYY-MM-DD HH:MM:SS"
         ),
       };
-    let res = await this.store2.actOnRequest(obj)
-    localStorage.setItem('cardData', JSON.stringify(req));
+      let res = await this.store2.actOnRequest(obj);
+      localStorage.setItem("cardData", JSON.stringify(req));
       this.popup = false;
+
+      // Show notification based on action
+      if (this.status === "A") {
+        this.$q.notify({
+          color: "green",
+          position: "top",
+          message: "Request accepted successfully!",
+          icon: "task_alt",
+        });
+      } else if (this.status === "R") {
+        this.$q.notify({
+          color: "red",
+          position: "top",
+          message: "Request rejected successfully!",
+          icon: "cancel",
+        });
+      }
+
+      // Hide approve/reject buttons
+      this.buttonShow = false;
     },
     dateFormate(data) {
       return date.formatDate(data, "ddd,MMMM Do,YYYY");

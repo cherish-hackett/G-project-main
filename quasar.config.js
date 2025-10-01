@@ -1,3 +1,4 @@
+const path = require("path");
 const { configure } = require("quasar/wrappers");
 
 module.exports = configure(function (ctx) {
@@ -79,7 +80,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ["Notify", 'Loading'],
+      plugins: ["Notify", "Loading"],
     },
 
     // animations: 'all', // --- includes all animations

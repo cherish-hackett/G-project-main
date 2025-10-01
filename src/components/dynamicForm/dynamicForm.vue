@@ -33,40 +33,45 @@
 
       <q-tab-panels v-model="selectedTab">
         <q-tab-panel
-          v-for="(tab, index) in formData.FSRdetails"
-          :key="index"
+          v-for="(tab, tabIndex) in formData.FSRdetails"
+          :key="tabIndex"
           :name="tab.tabId"
         >
           <!-- Render form fields dynamically -->
 
           <div
-            v-for="field in tab.fsrFieldDetList"
+            v-for="(field, fieldIndex) in tab.fsrFieldDetList"
             :key="field.fieldId"
             class="q-mb-md"
           >
             <!-- IMAGE Field Handling -->
             <template v-if="field.fieldType === 'IMAGE'">
               <q-input
-                :label="field.fieldName + ' *'"
+                :label="field.fieldName + '* '"
                 outlined
                 dense
                 readonly
                 v-model="field.fieldValue"
                 :fieldIndex="field.fieldIndex"
+                capture="environment"
+                accept="image/*"
+                class="uploadImg"
               />
               <!-- Image Upload Input -->
               <input
+                class="uploadImg"
                 type="file"
                 @change="
                   handleImageUpload(
                     $event,
                     field.fieldId,
                     tab.tabId,
-                    field.fieldIndex,
-                    tab.tabIndex
+                    fieldIndex,
+                    tabIndex
                   )
                 "
-                :fieldIndex="field.fieldIndex"
+                :fieldIndex="fieldIndex"
+                @click="saveForm"
               />
               <!-- Image Preview -->
               <img
@@ -77,63 +82,22 @@
               />
             </template>
 
-            <!-- All Other Field Types -->
-            <!-- <component
-              v-else
-              :is="getComponentType(field.fieldType)"
-              v-model="field.fieldValue"
-              :label="field.fieldName + ' *' + field.placeholder"
-              :type="getFieldType(field.fieldType)"
-              :options="
-                field.fieldType === 'SELECT'
-                  ? field.fieldOptions.split(',').map((option) => option.trim())
-                  : []
-              "
-              :rules="[
-                (val) => !!val || field.fieldName + ' is required',
-                field.fieldType === 'EMAIL'
-                  ? (val) =>
-                      /.+@.+\..+/.test(val) || 'Please enter a valid email'
-                  : () => true,
-                field.fieldType === 'NUMBER'
-                  ? (val) =>
-                      !isNaN(val) || field.fieldName + ' must be a number'
-                  : () => true,
-              ]"
-              :fieldIndex="field.fieldIndex"
-              :readonly="field.isfieldEditable === 'F'"
-              :placeholder="field.placeholder"
-              outlined
-              dense
-            /> -->
-
             <component
               v-else
               :is="getComponentType(field.fieldType)"
               v-model="field.fieldValue"
               :label="field.fieldName + ' *'"
               :type="getFieldType(field.fieldType)"
+              :rules="[(value) => validateFieldWrapper(field, value)]"
               :options="
                 field.fieldType === 'SELECT'
                   ? field.fieldOptions.split(',').map((option) => option.trim())
                   : []
               "
-              :rules="[
-                (val) => !!val || field.fieldName + ' is required',
-                field.fieldType === 'EMAIL'
-                  ? (val) =>
-                      /.+@.+\..+/.test(val) || 'Please enter a valid email'
-                  : () => true,
-                field.fieldType === 'NUMBER'
-                  ? (val) =>
-                      !isNaN(val) || field.fieldName + ' must be a number'
-                  : () => true,
-              ]"
               :fieldIndex="field.fieldIndex"
               :readonly="field.isfieldEditable === 'F'"
-              :placeholder="field.placeholder"
-              :hint="field.fieldType === 'SELECT' ? field.placeholder : ''"
-              outlined
+              :placeholder="field.fieldPlaceHolder || ''"
+              outline
               dense
             />
 
@@ -165,9 +129,10 @@ import {
   QSelect,
 } from "quasar";
 
-import { validateForm } from "src/utils/validation.js";
+import { validateField, validateForm } from "../../utils/validation.js";
 
-const AUTO_SAVE_INTERVAL = import.meta.AUTO_SAVE_INTERVAL; // Default to 2 min if not set
+const AUTO_SAVE_INTERVAL = 1200000;
+// Default to 2 min if not set
 import { getForm, updateForm, addForm } from "./indexDBService";
 import {
   deleteImage,
@@ -196,14 +161,6 @@ export default {
     const store = new callService();
     return { store };
   },
-
-  // data() {
-  //   return {
-  //     selectedTab: "COMPREQ", // Default selected tab
-  //     formData: { FSRdetails: [] }, // Main form object (dynamic fields)
-  //     saveInterval: null, // Interval handler for auto-save
-  //   };
-  // },
 
   data() {
     return {
@@ -267,6 +224,16 @@ export default {
       }
     },
 
+    validateFieldWrapper(field, value) {
+      const error = validateField(field, value);
+      if (!error) {
+        delete this.errors[field.fieldId];
+      } else {
+        this.errors[field.fieldId] = error;
+      }
+      return error || true; // For Quasar rules
+    },
+
     // --------- AUTO SAVE ---------
     startAutoSave() {
       this.saveInterval = setInterval(this.saveForm, AUTO_SAVE_INTERVAL); // 2 min
@@ -291,7 +258,7 @@ export default {
           existingRecord &&
           JSON.stringify(existingRecord) === JSON.stringify(this.formData)
         ) {
-          // console.log("No changes detected, skipping save.");
+          console.log("No changes detected, skipping save.");
           return;
         } else {
           await updateForm(JSON.stringify(this.formData));
@@ -340,6 +307,7 @@ export default {
       if (Object.keys(this.errors).length > 0) {
         this.$q.notify({
           type: "negative",
+          position: "top",
           icon: "error",
           message:
             "Some fields contain invalid values.<br/>Please check the highlighted errors.",
@@ -370,12 +338,8 @@ export default {
 
           console.log("FormData for Image:", [...formData.entries()]);
 
-
-
           // Upload image via store
           this.store.UploadImage(formData);
-
-
         }
 
         const payload = { ...this.formData };
@@ -391,6 +355,7 @@ export default {
         this.$q.notify({
           type: "positive",
           icon: "check_circle",
+          position: "top",
           message: "Form submitted successfully 🎉",
         });
       } catch (error) {
@@ -441,25 +406,84 @@ export default {
       const file = event.target.files[0];
       if (file) {
         const reader = new FileReader();
+
         reader.onload = async (e) => {
-          const base64String = e.target.result;
-          const form = await getForm(this.formData.Message);
+          const img = new Image();
+          img.src = e.target.result;
 
-          if (form) {
-            // Save image data (base64 + file name) in formData
-            form.FSRdetails[tabIndex - 1].fsrFieldDetList[
-              fieldIndex
-            ].fieldLength = base64String;
-            form.FSRdetails[tabIndex - 1].fsrFieldDetList[
-              fieldIndex
-            ].fieldValue = file.name;
-            this.formData = form;
-            console.log("Updated form with image:", form);
-          }
+          img.onload = async () => {
+            // Create canvas
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
 
-          // Store file in IndexedDB for offline persistence
-          await addImage(file, fieldId, fieldIndex, tabId, file.name);
+            // Resize dimensions (optional: scale down large images)
+            const MAX_WIDTH = 800;
+            const MAX_HEIGHT = 800;
+            let width = img.width;
+            let height = img.height;
+
+            if (width > height && width > MAX_WIDTH) {
+              height *= MAX_WIDTH / width;
+              width = MAX_WIDTH;
+            } else if (height > MAX_HEIGHT) {
+              width *= MAX_HEIGHT / height;
+              height = MAX_HEIGHT;
+            }
+
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+
+            // Compress to JPEG ~50kb (tweak quality until you reach target size)
+            let quality = 0.7; // start at 70%
+            let compressedBase64 = canvas.toDataURL("image/jpeg", quality);
+
+            // Adjust dynamically if larger than 50KB
+            while (compressedBase64.length / 1024 > 50 && quality > 0.1) {
+              quality -= 0.05;
+              compressedBase64 = canvas.toDataURL("image/jpeg", quality);
+            }
+
+            // Update formData
+            const form = await getForm(this.formData.Message);
+            if (form) {
+              const tabArr = form.FSRdetails[tabIndex];
+              if (!tabArr) {
+                console.error("Tab not found for tabIndex:", tabIndex);
+                return;
+              }
+              const fieldObj = tabArr.fsrFieldDetList[fieldIndex];
+              if (!fieldObj) {
+                console.error("Field not found for fieldIndex:", fieldIndex);
+                return;
+              }
+              fieldObj.fieldLength = compressedBase64;
+              fieldObj.fieldValue = file.name;
+              this.formData = form;
+              console.log("Updated form with compressed image:", form);
+            }
+
+            // Store original file or compressed blob in IndexedDB
+            const blob = await (await fetch(compressedBase64)).blob();
+            console.log(
+              "📉 Compressed size:",
+              (blob.size / 1024).toFixed(2),
+              "KB"
+            );
+
+            const compressedFile = new File([blob], file.name, {
+              type: "image/jpeg",
+            });
+            await addImage(
+              compressedFile,
+              fieldId,
+              fieldIndex,
+              tabId,
+              file.name
+            );
+          };
         };
+
         reader.readAsDataURL(file);
       }
     },
