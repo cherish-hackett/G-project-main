@@ -69,12 +69,7 @@ export const validateField = (field, value) => {
             err = `${field.fieldName} must be ≤ ${field.fieldMaxVal}.`;
           }
         }
-        // if (
-        //   field.fieldLength &&
-        //   value.toString().length !== Number(field.fieldLength)
-        // ) {
-        //   err = `${field.fieldName} must be exactly ${field.fieldLength} digits.`;
-        // }
+
       }
       break;
 

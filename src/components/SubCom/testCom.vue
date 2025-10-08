@@ -61,7 +61,7 @@ export default {
   methods: {
     async getList() {
       Loading.show();
-      const da = { type: "" };
+      const da = { type: "O" };
       try {
         const response = await this.store.fetchCallAllocationList(da);
         const serviceDetails = response.ServiceDetails;

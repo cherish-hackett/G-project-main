@@ -186,8 +186,12 @@ export default {
     const form = await getForm(messageKey);
     if (form) {
       this.formData = form;
+      if (!Array.isArray(this.formData.FSRdetails)) {
+        this.formData.FSRdetails = [];
+      }
     } else {
-      this.formData.Message = messageKey; // ensure it's set
+      this.formData.Message = messageKey;
+      this.formData.FSRdetails = [];
     }
 
     await this.initializeFormData();
